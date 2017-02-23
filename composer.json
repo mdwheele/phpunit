@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mdwheele/phpunit"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "dev-feature/improve-teamcity-message-for-marker-exceptions"
+    }
+}

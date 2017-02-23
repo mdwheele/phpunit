@@ -1,0 +1,56 @@
+vagrant@homestead:~/Code/phpunit-teamcity$ vendor/bin/phpunit --no-configuration tests/
+PHPUnit 6.1-gc3ab4d4 by Sebastian Bergmann and contributors.
+
+EE                                                                  2 / 2 (100%)
+
+Time: 145 ms, Memory: 4.00MB
+
+There were 2 errors:
+
+1) ExceptionMessageTest::it_asserts_true
+Exception: Error message should show up.
+
+/home/vagrant/Code/phpunit-teamcity/tests/ExceptionMessageTest.php:8
+
+2) ExceptionNoMessageTest::it_asserts_true
+Exception:
+
+/home/vagrant/Code/phpunit-teamcity/tests/ExceptionNoMessageTest.php:8
+
+ERRORS!
+Tests: 2, Assertions: 0, Errors: 2.
+
+
+
+
+##teamcity[testCount count='7' flowId='12065']
+##teamcity[testSuiteStarted name='tests/' flowId='12065']
+##teamcity[testSuiteStarted name='ExceptionMessageTest' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/ExceptionMessageTest.php::\ExceptionMessageTest' flowId='12065']
+##teamcity[testStarted name='it_asserts_true' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/ExceptionMessageTest.php::\ExceptionMessageTest::it_asserts_true' flowId='12065']
+##teamcity[testFailed name='it_asserts_true' message='Error message should show up.' details=' /home/vagrant/Code/phpunit-teamcity/tests/ExceptionMessageTest.php:15|n ' flowId='12065']
+##teamcity[testFinished name='it_asserts_true' duration='0' flowId='12065']
+##teamcity[testSuiteFinished name='ExceptionMessageTest' flowId='12065']
+##teamcity[testSuiteStarted name='ExceptionNoMessageTest' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/ExceptionNoMessageTest.php::\ExceptionNoMessageTest' flowId='12065']
+##teamcity[testStarted name='it_asserts_true' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/ExceptionNoMessageTest.php::\ExceptionNoMessageTest::it_asserts_true' flowId='12065']
+##teamcity[testFailed name='it_asserts_true' message='' details=' /home/vagrant/Code/phpunit-teamcity/tests/ExceptionNoMessageTest.php:8|n ' flowId='12065']
+##teamcity[testFinished name='it_asserts_true' duration='0' flowId='12065']
+##teamcity[testSuiteFinished name='ExceptionNoMessageTest' flowId='12065']
+##teamcity[testSuiteStarted name='OtherStatusTest' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php::\OtherStatusTest' flowId='12065']
+##teamcity[testStarted name='it_logically_fails' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php::\OtherStatusTest::it_logically_fails' flowId='12065']
+##teamcity[testFailed name='it_logically_fails' message='Failed asserting that two strings are equal.' details=' /home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php:8|n ' type='comparisonFailure' actual='|'bubble|'' expected='|'bork|nbar|'' flowId='12065']
+##teamcity[testFinished name='it_logically_fails' duration='30' flowId='12065']
+##teamcity[testStarted name='it_skips' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php::\OtherStatusTest::it_skips' flowId='12065']
+##teamcity[testIgnored name='it_skips' message='With message.' details=' /home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php:14|n ' flowId='12065']
+##teamcity[testFinished name='it_skips' duration='0' flowId='12065']
+##teamcity[testStarted name='it_incompletes' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php::\OtherStatusTest::it_incompletes' flowId='12065']
+##teamcity[testIgnored name='it_incompletes' message='With message.' details=' /home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php:20|n ' flowId='12065']
+##teamcity[testFinished name='it_incompletes' duration='0' flowId='12065']
+##teamcity[testStarted name='it_notices' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php::\OtherStatusTest::it_notices' flowId='12065']
+##teamcity[testFailed name='it_notices' message='Undefined variable: that_does_not_exist' details=' /home/vagrant/Code/phpunit-teamcity/tests/OtherStatusTest.php:26|n ' flowId='12065']
+##teamcity[testFinished name='it_notices' duration='0' flowId='12065']
+##teamcity[testSuiteFinished name='OtherStatusTest' flowId='12065']
+##teamcity[testSuiteStarted name='PassingTest' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/PassingTest.php::\PassingTest' flowId='12065']
+##teamcity[testStarted name='it_passes' locationHint='php_qn:///home/vagrant/Code/phpunit-teamcity/tests/PassingTest.php::\PassingTest::it_passes' flowId='12065']
+##teamcity[testFinished name='it_passes' duration='0' flowId='12065']
+##teamcity[testSuiteFinished name='PassingTest' flowId='12065']
+##teamcity[testSuiteFinished name='tests/' flowId='12065']
