@@ -70,7 +70,7 @@ class TeamCity extends ResultPrinter
      */
     public function addError(Test $test, \Exception $e, $time)
     {
-        $this->printEvent(
+        $this->printMessage(
             'testFailed',
             [
                 'name'    => $test->getName(),
@@ -89,7 +89,7 @@ class TeamCity extends ResultPrinter
      */
     public function addWarning(Test $test, Warning $e, $time)
     {
-        $this->printEvent(
+        $this->printMessage(
             'testFailed',
             [
                 'name'    => $test->getName(),
@@ -138,7 +138,7 @@ class TeamCity extends ResultPrinter
             }
         }
 
-        $this->printEvent('testFailed', $parameters);
+        $this->printMessage('testFailed', $parameters);
     }
 
     /**
@@ -186,7 +186,7 @@ class TeamCity extends ResultPrinter
 
     public function printIgnoredTest($testName, Exception $e)
     {
-        $this->printEvent(
+        $this->printMessage(
             'testIgnored',
             [
                 'name'    => $testName,
@@ -212,7 +212,7 @@ class TeamCity extends ResultPrinter
         if (!$this->isSummaryTestCountPrinted) {
             $this->isSummaryTestCountPrinted = true;
 
-            $this->printEvent(
+            $this->printMessage(
                 'testCount',
                 ['count' => count($suite)]
             );
@@ -239,7 +239,7 @@ class TeamCity extends ResultPrinter
             }
         }
 
-        $this->printEvent('testSuiteStarted', $parameters);
+        $this->printMessage('testSuiteStarted', $parameters);
     }
 
     /**
@@ -265,7 +265,7 @@ class TeamCity extends ResultPrinter
             }
         }
 
-        $this->printEvent('testSuiteFinished', $parameters);
+        $this->printMessage('testSuiteFinished', $parameters);
     }
 
     /**
@@ -285,7 +285,7 @@ class TeamCity extends ResultPrinter
             $params['locationHint'] = "php_qn://$fileName::\\$className::$testName";
         }
 
-        $this->printEvent('testStarted', $params);
+        $this->printMessage('testStarted', $params);
     }
 
     /**
@@ -298,7 +298,7 @@ class TeamCity extends ResultPrinter
     {
         parent::endTest($test, $time);
 
-        $this->printEvent(
+        $this->printMessage(
             'testFinished',
             [
                 'name'     => $test->getName(),
@@ -311,7 +311,7 @@ class TeamCity extends ResultPrinter
      * @param string $eventName
      * @param array  $params
      */
-    private function printEvent($eventName, $params = [])
+    private function printMessage($eventName, $params = [])
     {
         $this->write("\n##teamcity[$eventName");
 
